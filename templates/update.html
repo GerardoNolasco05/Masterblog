@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Post</title>
+    <title>Update Blog Post</title>
 </head>
 <body>
-    <h1>Add New Blog Post</h1>
+    <h1>Update Blog Post</h1>
 
-    <form action="{{ url_for('add') }}" method="POST">
+    <form action="{{ url_for('update', post_id=post.id) }}" method="POST">
         <div>
             <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" required><br>
+            <input type="text" id="title" name="title" value="{{ post.title }}" required><br>
         </div>
 
         <div>
             <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author" required><br>
+            <input type="text" id="author" name="author" value="{{ post.author }}" required><br>
         </div>
 
         <div>
             <label for="content">Content:</label><br>
-            <textarea id="content" name="content" required></textarea><br>
+            <textarea id="content" name="content" required>{{ post.content }}</textarea><br>
         </div>
 
         <div>
-            <input type="submit" value="Add Post">
+            <input type="submit" value="Update Post">
         </div>
     </form>
 
